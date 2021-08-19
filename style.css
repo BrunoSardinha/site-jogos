@@ -26,10 +26,22 @@ body{
     border: solid 1px black;
     height: 100%;
     width: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 html{
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.game-info{
+    height: 100%;
+    width: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: column;
 }
