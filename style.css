@@ -3,6 +3,7 @@ body{
     height: 100%;
     overflow-x: hidden;
     overflow-y: hidden;
+    background-color: rgba(20, 70, 123, 0.4);
 }
 
 .uppernav{
@@ -25,7 +26,7 @@ body{
 .banner{
     border: solid 1px black;
     height: 100%;
-    width: auto;
+    width: 33%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -44,4 +45,11 @@ html{
     align-items: center;
     justify-content: space-evenly;
     flex-direction: column;
+    transition: 1000ms;
+}
+
+.game-info:hover {
+    background-color: lightblue;
+    height: 50%;
+    width: 70%;
 }
