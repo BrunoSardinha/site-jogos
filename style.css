@@ -27,9 +27,11 @@ body{
     border: solid 1px black;
     height: 100%;
     width: 33%;
+    margin: 40px;
     display: flex;
     align-items: center;
     justify-content: center;
+    transition: 1000ms;
 }
 
 html{
@@ -45,11 +47,10 @@ html{
     align-items: center;
     justify-content: space-evenly;
     flex-direction: column;
-    transition: 1000ms;
 }
 
-.game-info:hover {
+.banner:hover {
     background-color: lightblue;
-    height: 50%;
-    width: 70%;
+    height: 90%;
+    width: 30%;
 }
