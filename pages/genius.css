@@ -1,8 +1,105 @@
+.main { 
+    box-sizing: border-box;
+    height: 100vh;
+    width: 100vw;
+    padding: 10px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+}
+
+.perfect-center {
+    align-items: center;
+    display:flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.control-container {
+    height: 100%;
+    pointer-events: none;
+    position: absolute;
+    width: 100%;
+}
+
+.control {
+    border-radius: 100px;
+    cursor: pointer;
+    height: 25%;
+    margin: 10px 0;
+    position: relative;
+    width: 25%;
+}
+
+.control .background{
+    background-color: darkseagreen;
+    border-radius: 100px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    height: 80%;
+    pointer-events: initial;
+    position: absolute;
+    width: 80%;
+}
+
+.control p{
+    pointer-events: none;
+    position: relative;
+    text-align: center;
+    z-index: 1;
+}
+
+.game {
+    align-items: center;
+    -webkit-border-radius: 100%;
+    -moz-border-radius: 100%;
+    border-radius: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    height: 50vw;
+    justify-content: space-around;
+    margin:auto;
+    padding: 1.5%;
+    position:relative;
+    width: 50vw;
+}
+
 .clickable {
     height: 45%;
     width: 45%;
+    opacity:0.5 ;
+    transition: 0.75s;
+}
+
+.top-left.round-corner{
+    border-radius: 100% 5px 5px;
+}
+
+.top-right.round-corner {     
+    border-radius: 5px 100% 5px 5px; 
+}  
+
+.bottom-left.round-corner {
+    border-radius: 5px 5px 5px 100%; 
+}  
+
+.bottom-right.round-corner {     
+    border-radius: 5px 5px 100% 5px; 
 }
 
 #green {
     background-color: lightgreen;
+}
+
+#blue {
+    background-color: cornflowerblue;
+}
+
+#yellow {
+    background-color:gold;
+}
+
+#red {
+    background-color: tomato;
 }
