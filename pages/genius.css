@@ -1,3 +1,8 @@
+body{
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
 .main { 
     box-sizing: border-box;
     height: 100vh;
@@ -6,6 +11,7 @@
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
 }
+
 
 .perfect-center {
     align-items: center;
@@ -102,4 +108,72 @@
 
 #red {
     background-color: tomato;
+}
+
+/* HUD */
+
+.hud {
+	display: flex;
+	justify-content: center;
+	margin: 30px auto;
+	width: 50vw;
+}
+
+.hud div {
+	background-color: rgba(0, 0, 0, 0.1);
+	-webkit-border-radius: 15px;
+	-moz-border-radius: 15px;
+	border-radius: 15px;
+	margin: 0 1vw;
+	padding: 15px;
+}
+
+.score,
+.high-score {
+	margin: 0 auto;
+	text-align: center;
+}
+
+/* Media Queries */ 
+@media (min-width: 768px) {
+    .control p, .hud div p {
+     	font-size: 0.75rem; 	
+    }
+}  
+
+@media (min-width: 992px) {
+    main { 		
+        align-items: center;
+        display: flex;
+        height: 90vh;
+        justify-content: center;
+    }
+
+    .game { 	    
+        height: 40vw;
+        margin: 0 35px 0 0;
+        width: 40vw; 	
+    }
+
+    .control p, .hud div p {
+    font-size: 0.9rem;
+	} 
+
+    .hud { 		
+        align-items: center;
+        flex-direction: column; 		
+        margin: 0 0 0 35px; 		
+        justify-content: space-around; 		
+        width: 250px;
+    }
+
+    .hud div {
+		margin: 60px 0; 	
+    } 
+}  
+
+@media (min-width: 1200px) { 	
+    .control p, .hud div p { 		
+        font-size: 1.1rem; 	
+    } 
 }
