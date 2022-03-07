@@ -7,6 +7,7 @@ function setActive(element) {
 
 function startGame() {
     console.log("startGame")
+    document.getElementById("startButton").disabled = 'true';
 }
 
 function initialPresentation () {
