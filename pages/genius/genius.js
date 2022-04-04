@@ -11,12 +11,37 @@ function setActive(element, activate) {
     }
 }
 
+function runSequence(){
+    const size = randomSequence.length
+    for(let counter = 0; counter<=size; counter++){
+        //function runSequence() { console.log("LISTA => ", lista) const size = lista.length for(let count = 1; count <= size; count++) { console.log(lista[count-1]);
+    }
+
+    lista.push(size+1);
+}
+    }
+}
+
 function startGame() {
-    console.log("startGame")
+    let lost = false
     document.getElementById("startButton").disabled = 'true';
     buttonElements.forEach((element)=>{
         setActive(element, false)
     })
+    while(!lost) {
+        runSequence()
+        //rodar função de comprarção de jogadas
+    }
+    runSequence()
+}
+
+function round (button) {
+    setTimeout(()=>{
+        setActive(button, true)
+        setTimeout (()=> {
+            setActive(button,false)
+        },1000)
+    },1000)
 }
 
 function initialPresentation () {
@@ -24,20 +49,13 @@ function initialPresentation () {
     for(let element of buttonElements) {
         setTimeout (()=> {
             setActive (element, true)
-        },1000*a)
+        },250*a)
         a=a+1
     }
     setTimeout(()=>{
         startButton.innerHTML="COMEÇAR"
         document.getElementById("startButton").disabled = false;
-    },5000)
-}
-
-function runSequence(){
-    const size = randomSequence.length
-    for(let counter = 0; counter<=size; counter++){
-
-    }
+    },2000)
 }
 
 initialPresentation()
