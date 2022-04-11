@@ -2,6 +2,10 @@ const buttonElements = document.querySelectorAll(".clickable")
 const startButton = document.getElementById("startButton")
 let randomSequence = []
 
+function getRandomInt(max) {
+    return Math.floor(Math.random() * max);
+  }
+
 function setActive(element, activate) {
     if(activate) {
         element.classList.add("active")
@@ -11,34 +15,34 @@ function setActive(element, activate) {
     }
 }
 
-function runSequence(){
+async function runSequence() { 
+    console.log("LISTA => ", randomSequence) 
     const size = randomSequence.length
-    for(let counter = 0; counter<=size; counter++){
-        //function runSequence() { console.log("LISTA => ", lista) const size = lista.length for(let count = 1; count <= size; count++) { console.log(lista[count-1]);
+    for(let count = 1; count <= size; count++) { 
+        console.log(randomSequence[count-1]);
+        await round(buttonElements[randomSequence[count-1]])
     }
-
-    lista.push(size+1);
-}
-    }
+    randomSequence.push(getRandomInt(4));
 }
 
-function startGame() {
+async function startGame() {
     let lost = false
     document.getElementById("startButton").disabled = 'true';
     buttonElements.forEach((element)=>{
         setActive(element, false)
     })
     while(!lost) {
-        runSequence()
+        await runSequence()
+        alert("You are trash")
         //rodar função de comprarção de jogadas
     }
-    runSequence()
+    //runSequence()
 }
 
-function round (button) {
-    setTimeout(()=>{
+async function round (button) {
+    await setTimeout(async()=>{
         setActive(button, true)
-        setTimeout (()=> {
+        await setTimeout (()=> {
             setActive(button,false)
         },1000)
     },1000)
