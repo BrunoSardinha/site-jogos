@@ -15,47 +15,46 @@ function setActive(element, activate) {
     }
 }
 
-async function runSequence() { 
-    console.log("LISTA => ", randomSequence) 
-    const size = randomSequence.length
-    for(let count = 1; count <= size; count++) { 
-        console.log(randomSequence[count-1]);
-        await round(buttonElements[randomSequence[count-1]])
-    }
-    randomSequence.push(getRandomInt(4));
-}
-
 async function startGame() {
     let lost = false
     document.getElementById("startButton").disabled = 'true';
-    buttonElements.forEach((element)=>{
-        setActive(element, false)
-    })
+    // buttonElements.forEach((element)=>{
+    //     setActive(element, false)
+    // })
     while(!lost) {
-        await runSequence()
+        console.log("LISTA => ", randomSequence)
+        time = randomSequence.length * 1000;
+        await setTimeout(() => {
+            runSequence(randomSequence)
+        }, time)
+        randomSequence.push(getRandomInt(4));
         alert("You are trash")
         //rodar função de comprarção de jogadas
     }
     //runSequence()
 }
 
-async function round (button) {
-    await setTimeout(async()=>{
-        setActive(button, true)
-        await setTimeout (()=> {
-            setActive(button,false)
-        },1000)
-    },1000)
+async function runSequence(elements) {
+    let a = 1
+        
+    for(let element of elements) {
+        setTimeout (()=> {
+            setActive (element, true)
+        },800*a)
+        a=a+1
+    }
+
+    for(let element of elements) {
+        setTimeout (()=> {
+            setActive (element, false)
+        },1000*a)
+        a=a+1
+    }
 }
 
 function initialPresentation () {
-    let a = 1
-    for(let element of buttonElements) {
-        setTimeout (()=> {
-            setActive (element, true)
-        },250*a)
-        a=a+1
-    }
+    runSequence(buttonElements);
+
     setTimeout(()=>{
         startButton.innerHTML="COMEÇAR"
         document.getElementById("startButton").disabled = false;
