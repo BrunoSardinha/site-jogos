@@ -1,12 +1,36 @@
 const buttonElements = document.querySelectorAll(".clickable")
 const startButton = document.getElementById("startButton")
-let randomSequence = []
+
+let plays = []
+let user_choices = []
+
+async function blink (button, time) {
+    setActive(button, true)
+    await setTimeout(() => {console.log('Ativado')}, time/2)
+    setActive(button, false)
+    await setTimeout(() => {console.log('Desativado')}, time/2)
+}
+
+async function showPlays(lista) {
+    lista.forEach(async (button, index) => {
+        await setTimeout(() => {
+            console.log('Ativado')
+            setActive(button, true)
+        }, index*1000)
+        
+        await setTimeout(() => {
+            console.log('Desativado')
+            setActive(button, false)
+        }, index*1000 + 500)
+    });
+}
 
 function getRandomInt(max) {
     return Math.floor(Math.random() * max);
   }
 
 function setActive(element, activate) {
+    console.log(element)
     if(activate) {
         element.classList.add("active")
     }
@@ -15,50 +39,42 @@ function setActive(element, activate) {
     }
 }
 
+//gerar sequencia aleatoria
+async function addPlay() {
+    randomSequence.push(getRandomInt(4));
+    await showPlays(plays)
+}
+
+function getPlay() {
+    
+    // enquanto o numero de escolhas for menor que o numero de jogadas
+        // captura as escolhas
+
+    // comparar escolhas e jogadas
+        // se igual => return false
+        //senao => return true
+}
+
 async function startGame() {
     let lost = false
     document.getElementById("startButton").disabled = 'true';
-    // buttonElements.forEach((element)=>{
-    //     setActive(element, false)
-    // })
+
     while(!lost) {
-        console.log("LISTA => ", randomSequence)
-        time = randomSequence.length * 1000;
-        await setTimeout(() => {
-            runSequence(randomSequence)
-        }, time)
-        randomSequence.push(getRandomInt(4));
-        alert("You are trash")
-        //rodar função de comprarção de jogadas
-    }
-    //runSequence()
-}
-
-async function runSequence(elements) {
-    let a = 1
-        
-    for(let element of elements) {
-        setTimeout (()=> {
-            setActive (element, true)
-        },800*a)
-        a=a+1
+        await addPlay();
+        lost = getPlay()
     }
 
-    for(let element of elements) {
-        setTimeout (()=> {
-            setActive (element, false)
-        },1000*a)
-        a=a+1
-    }
+    //game over presenetation
 }
+
 
 function initialPresentation () {
-    runSequence(buttonElements);
+    showPlays(buttonElements);
 
     setTimeout(()=>{
         startButton.innerHTML="COMEÇAR"
         document.getElementById("startButton").disabled = false;
-    },2000)
+    },4000)
 }
 
 initialPresentation()
