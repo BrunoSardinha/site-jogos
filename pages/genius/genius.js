@@ -39,6 +39,7 @@ function setActive(element, activate) {
     }
 }
 
+getPlay.randomSequence
 //gerar sequencia aleatoria
 async function addPlay() {
     randomSequence.push(getRandomInt(4));
@@ -46,10 +47,15 @@ async function addPlay() {
 }
 
 function getPlay() {
-    
+    while user_choices<plays
+        getPlay
     // enquanto o numero de escolhas for menor que o numero de jogadas
         // captura as escolhas
 
+    if user_choices=plays:
+        return(false)
+    else
+        return(true)
     // comparar escolhas e jogadas
         // se igual => return false
         //senao => return true
@@ -63,7 +69,7 @@ async function startGame() {
         await addPlay();
         lost = getPlay()
     }
-
+    h1(GAME OVER)
     //game over presenetation
 }
 
