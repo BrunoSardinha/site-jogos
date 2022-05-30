@@ -3,6 +3,7 @@ const startButton = document.getElementById("startButton")
 
 let plays = []
 let user_choices = []
+var chosen_button
 
 async function blink (button, time) {
     setActive(button, true)
@@ -46,19 +47,22 @@ async function addPlay() {
     await showPlays(plays)
 }
 
-function getPlay() {
-    while user_choices<plays
-        getPlay
-    // enquanto o numero de escolhas for menor que o numero de jogadas
-        // captura as escolhas
-
-    if user_choices=plays:
-        return(false)
-    else
-        return(true)
-    // comparar escolhas e jogadas
-        // se igual => return false
-        //senao => return true
+function getPlay() {    
+    let counter = 0
+    while(counter < plays.length) {
+        let userPlayed = false
+        while(!userPlayed) {
+            await setTimeout(() => {
+                console.log('Desativado por 2')
+                1
+            }, 200)
+        }
+        if(plays[counter] !== user_choices[counter]) {
+            return(true)
+        }
+        counter++
+    }
+    return(false)
 }
 
 async function startGame() {
@@ -69,7 +73,7 @@ async function startGame() {
         await addPlay();
         lost = getPlay()
     }
-    h1(GAME OVER)
+    console.log("GAME OVER")
     //game over presenetation
 }
 
