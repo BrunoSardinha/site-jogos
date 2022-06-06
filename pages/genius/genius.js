@@ -15,12 +15,10 @@ async function blink (button, time) {
 async function showPlays(lista) {
     lista.forEach(async (button, index) => {
         await setTimeout(() => {
-            console.log('Ativado')
             setActive(button, true)
         }, index*1000)
         
         await setTimeout(() => {
-            console.log('Desativado')
             setActive(button, false)
         }, index*1000 + 500)
     });
@@ -40,22 +38,22 @@ function setActive(element, activate) {
     }
 }
 
-getPlay.randomSequence
-//gerar sequencia aleatoria
 async function addPlay() {
-    randomSequence.push(getRandomInt(4));
+    plays.push(getRandomInt(4));
     await showPlays(plays)
 }
 
-function getPlay() {    
+async function getPlay() {    
     let counter = 0
     while(counter < plays.length) {
         let userPlayed = false
         while(!userPlayed) {
             await setTimeout(() => {
-                console.log('Desativado por 2')
-                1
-            }, 200)
+                //rodar função que pega click de usuario (deve retornar um elemento ou undefined)
+                //userPlayed = true
+                console.log('Desativado por 5')
+            }, 500)
+
         }
         if(plays[counter] !== user_choices[counter]) {
             return(true)
@@ -74,7 +72,7 @@ async function startGame() {
         lost = getPlay()
     }
     console.log("GAME OVER")
-    //game over presenetation
+    //game over presentation
 }
 
 
@@ -87,4 +85,20 @@ function initialPresentation () {
     },4000)
 }
 
+async function processClick(element){
+    console.log('FUNCIONA')
+    user_choices.push(element)
+    await setTimeout(() => {
+        setActive(element, true)
+    }, 500)
+    
+    await setTimeout(() => {
+        setActive(element, false)
+    }, 1000)
+}
 initialPresentation()
+
+
+for(let element of buttonElements){
+    element.onclick= () => processClick(element)
+}
